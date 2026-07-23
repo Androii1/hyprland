@@ -1,0 +1,24 @@
+#!/bin/bash
+# ============================================================
+# INICIA EL SALVAPANTALLAS
+# ============================================================
+
+# Matar procesos anteriores
+pkill -f "alacritty --class Screensaver" 2>/dev/null
+pkill -x tte 2>/dev/null
+sleep 0.5
+
+# Obtener resolución de la pantalla
+MONITOR=$(hyprctl monitors -j | jq -r '.[0] | .name')
+WIDTH=$(hyprctl monitors -j | jq -r '.[0] | .width')
+HEIGHT=$(hyprctl monitors -j | jq -r '.[0] | .height')
+
+COLS=$((WIDTH / 10))
+LINES=$((HEIGHT / 20))
+
+# Lanzar Alacritty
+alacritty --class Screensaver \
+    --config-file /home/ander/.config/alacritty/salvapantallas.toml \
+    -o window.dimensions.columns=$COLS \
+    -o window.dimensions.lines=$LINES \
+    -e bash /home/ander/.config/hypr/scripts/screensaver/salvapantallas-bucle

@@ -1,0 +1,30 @@
+#!/bin/bash
+# ============================================================
+# BUCLE DEL SALVAPANTALLAS (CORREGIDO)
+# ============================================================
+
+# Limpiar la terminal al inicio
+print '\033c'
+
+while true; do
+    # Limpiar antes de cada frame
+    clear
+    
+    # Ejecutar tte ocupando toda la pantalla
+    tte -i /home/ander/.config/hypr/logo/screensaver.txt \
+        --frame-rate 240 \
+        --no-eol \
+        --canvas-width 0 \
+        --canvas-height 0 \
+        --anchor-canvas c \
+        --anchor-text c \
+        --random-effect &
+    
+    # Esperar 1.5 segundos para una tecla
+    if read -n1 -t 1.5; then
+        # Salir al presionar cualquier tecla
+        pkill -x tte 2>/dev/null
+        pkill -f "alacritty --class Screensaver" 2>/dev/null
+        exit 0
+    fi
+done

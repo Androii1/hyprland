@@ -1,0 +1,22 @@
+# ============================================================
+# CONFIGURACIÓN DE ALACRITTY PARA EL SALVAPANTALLAS
+# ============================================================
+
+[window]
+decorations = "None"          # Sin bordes ni barra de título
+opacity = 1.0                 # Completamente opaco
+padding = { x = 0, y = 0 }    # Sin padding
+dimensions = { columns = 120, lines = 40 }  # Tamaño inicial
+
+[scrolling]
+history = 0                   # Sin historial de scroll
+
+[cursor]
+style = "Block"               # Cursor en bloque
+unfocused_hollow = false
+
+[font]
+size = 14                     # Tamaño de fuente
+
+[colors]
+primary = { background = "#000000", foreground = "#ffffff" }  # Fondo negro, texto blanco

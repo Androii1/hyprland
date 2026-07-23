@@ -1,0 +1,30 @@
+theme = "default"
+
+[providers]
+default = [
+  "desktopapplications",
+  "menus",
+]
+
+empty = [
+  "desktopapplications",
+]
+
+max_results = 50
+
+
+[[providers.prefixes]]
+prefix = ";"
+provider = "providerlist"
+
+[[providers.prefixes]]
+prefix = ">"
+provider = "runner"
+
+[[providers.prefixes]]
+prefix = "="
+provider = "calc"
+
+[[providers.prefixes]]
+prefix = "@"
+provider = "websearch"

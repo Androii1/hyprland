@@ -1,0 +1,41 @@
+{
+    "logo": {
+        "source": "~/.config/fastfetch/logos/logo-1.png",
+        "type": "kitty",
+        "width": 30,
+        "height": 20,
+        "padding": {
+            "left": 3
+        },
+        "color": {
+            "1": "green"
+        }
+    },
+    "display": {
+        "separator": "  "
+    },
+    "modules": [
+        "os",
+        "host",
+        "kernel",
+        "uptime",
+        "packages",
+        "shell",
+        "display",
+        "wm",
+        "theme",
+        "icons",
+        "font",
+        "cursor",
+        "terminal",
+        "terminalfont",
+        "cpu",
+        "gpu",
+        "memory",
+        "swap",
+        "disk",
+        "localip",
+        "battery",
+        "locale"
+    ]
+}

@@ -1,0 +1,10 @@
+#!/bin/bash
+mkdir -p ~/Pictures/screenshots
+
+AREA=$(slurp)
+
+if [ -n "$AREA" ]; then
+    grim -g "$AREA" - | swappy -f - -o ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png
+else
+    notify-send -u normal "📸 Captura" "Cancelada"
+fi

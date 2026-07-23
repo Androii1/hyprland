@@ -1,0 +1,15 @@
+#!/bin/bash
+mkdir -p ~/Pictures/screenshots
+
+WIN_INFO=$(hyprctl activewindow -j)
+X=$(echo "$WIN_INFO" | jq -r '.at[0]')
+Y=$(echo "$WIN_INFO" | jq -r '.at[1]')
+W=$(echo "$WIN_INFO" | jq -r '.size[0]')
+H=$(echo "$WIN_INFO" | jq -r '.size[1]')
+
+if [ "$X" != "null" ] && [ -n "$X" ]; then
+    GEOM="${X},${Y} ${W}x${H}"
+    grim -g "$GEOM" - | swappy -f - -o ~/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png
+else
+    notify-send -u critical "❌ Error" "No hay ventana activa"
+fi
